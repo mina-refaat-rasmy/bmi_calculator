@@ -42,5 +42,5 @@ BMI is a measure of body fat based on height and weight that applies to adult me
 
 1. *Clone the repository*
    ```bash
-   git clone https://github.com/your-username/bmi_calculator.git
+   git clone https://github.com/mina-refaat-rasmy/bmi_calculator.git
    cd bmi_calculator
