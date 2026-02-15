@@ -37,29 +37,27 @@ class _Bmi_ScreenState extends State<Bmi_Screen> {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(15, 15, 15, 25),
+          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
           child: Column(
             spacing: 15,
-            children: [
-              GenderCart(),
-              HeightSelection(),
-              WeightAndAge(),
-              Main_Button(
-                text: 'Calculate',
-                onPressed: () {
-                  double result =
-                      waight /
-                      (height * height / 10000); // Example result value
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ResultScreen(result: result),
-                    ),
-                  );
-                },
-              ),
-            ],
+            children: [GenderCart(), HeightSelection(), WeightAndAge()],
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+        child: Main_Button(
+          text: 'Calculate',
+          onPressed: () {
+            double result =
+                waight / (height * height / 10000); // Example result value
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ResultScreen(result: result),
+              ),
+            );
+          },
         ),
       ),
     );

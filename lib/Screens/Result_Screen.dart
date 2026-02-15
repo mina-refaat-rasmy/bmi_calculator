@@ -35,7 +35,7 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Stutas stutas = getStutas(result);
     return Scaffold(
-      backgroundColor: AppColor.graycolor,
+      backgroundColor: AppColor.primary,
       appBar: AppBar(
         backgroundColor: AppColor.primary,
         centerTitle: true,
@@ -48,40 +48,53 @@ class ResultScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              stutas.text,
-              style: TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-                color: stutas.color,
-              ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(15, 60, 15, 5),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColor.graycolor,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  stutas.text,
+                  style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    color: stutas.color,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  result.toStringAsFixed(
+                    2,
+                  ), // Display the result with 2 decimal places
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.textPrimary,
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 20),
-            Text(
-              result.toStringAsFixed(
-                2,
-              ), // Display the result with 2 decimal places
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: AppColor.textPrimary,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
-      bottomNavigationBar: Main_Button(
-        text: 'Re-Calculate',
-        onPressed: () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => Bmi_Screen()),
-          );
-        },
+
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 20),
+        child: Main_Button(
+          text: 'Re-Calculate',
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => Bmi_Screen()),
+            );
+          },
+        ),
       ),
     );
   }
